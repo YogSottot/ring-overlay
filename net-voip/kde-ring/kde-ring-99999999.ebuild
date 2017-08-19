@@ -63,6 +63,8 @@ DEPEND="${RDEPEND}
 kde5_src_configure()  {
 		local mycmakeargs=(
 		-DENABLE_VIDEO="$(usex video true false)"
+		-DENABLE_SHARED="$(usex system-libringclient true false)"
+		-DENABLE_STATIC="$(usex system-libringclient false true)"
 		-DCMAKE_INSTALL_PREFIX=/usr
 		-DCMAKE_BUILD_TYPE=Release
 	)
